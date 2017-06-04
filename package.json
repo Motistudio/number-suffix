@@ -1,6 +1,6 @@
 {
   "name": "number-suffix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turns a number to a fixed string with a metric or abbreviation suffix",
   "main": "index.js",
   "scripts": {
@@ -28,22 +28,5 @@
   "bugs": {
     "url": "https://github.com/Motistudio/number-suffix/issues"
   },
-  "homepage": "https://github.com/Motistudio/number-suffix#readme",
-  "ava": {
-    "files": [
-      "tests/*.spec.js"
-    ],
-    "source": [
-      "**/*.{js,jsx}",
-      "!dist/**/*"
-    ],
-    "concurrency": 5,
-    "failFast": true,
-    "failWithoutAssertions": false,
-    "tap": true
-  },
-  "devDependencies": {
-    "tap-spec": "^4.1.1",
-    "tape": "^4.6.3"
-  }
+  "homepage": "https://github.com/Motistudio/number-suffix#readme"
 }

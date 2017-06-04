@@ -1,9 +1,9 @@
-# NumberFormat
+# NumberSuffix
 By Moti Shriki
 
 ## What?
 
-NumberFormat is a package for ceiling numbers with a suffix for its zeros.
+NumberSuffix is a package for ceiling numbers with a suffix for its zeros.
 Example:
 * 1,234 -> 1k
 * 1,234,567 -> 1M
