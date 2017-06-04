@@ -14,6 +14,13 @@ Example:
 * Adding more formatting styles, already supports:
   * Metric (default)
   * Abbreviation
+* Support for the following units:
+    1. thousand
+    2. million
+    3. billion
+    4. trillion
+    5. quadrillion
+    6. quintillion
 
 ### Why not using `number-abbreviate`, `numbr` or `numeraljs`?
 Mainly because of the libraries usage. I needed something very generic to work with for a project I'm currenly working on. The other libraries had either a specific usage (which works well on the wide internet) or a missing feature that I was needed.
@@ -45,7 +52,7 @@ NumberSuffix.format(1234567, {precision: 2}) // 1.23M
 ```
 
 Fixed measurement:
-Supports: 'thousand', 'million', 'billion', 'trillion'.
+Supports: 'thousand', 'million', 'billion', 'trillion', 'quadrillion' and 'quintillion'.
 ```javascript
 NumberSuffix.format(1234567, {measurement: 'thousand'}) // 1234k
 NumberSuffix.format(1234, {precision: 3, measurement: 'million'}) // 0.001M
