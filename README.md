@@ -27,3 +27,78 @@ Just npm-install it:
 ```
 npm i number-suffix --save
 ```
+
+### Usage
+
+Basic usage:
+```javascript
+NumberSuffix.format(1234) // 1k
+NumberSuffix.format(1234567) // 1M
+NumberSuffix.format(1e9) // 1G
+NumberSuffix.format(1e12) // 1T
+```
+
+Precision:
+```javascript
+NumberSuffix.format(1234, {precision: 2}) // 1.23k
+NumberSuffix.format(1234567, {precision: 2}) // 1.23M
+```
+
+Fixed measurement:
+Supports: 'thousand', 'million', 'billion', 'trillion'.
+```javascript
+NumberSuffix.format(1234567, {measurement: 'thousand'}) // 1234k
+NumberSuffix.format(1234, {precision: 3, measurement: 'million'}) // 0.001M
+```
+
+Abbreviation:
+```javascript
+NumberSuffix.format(1e3, {style: 'abbreviation'}) // 1K
+NumberSuffix.format(1e9, {style: 'abbreviation'}) // 1B
+```
+
+And adding and using a new style:
+```javascript
+NumberSuffix.addStyle('yourStyleName', ['Thousand', 'Million', 'Billion', 'Trillion'])
+NumberSuffix.format(1e6, {style: 'yourStyleName'}) // 1Million
+```
+If there are null values it will lean on the metric style as a fallback.
+
+## Instance
+You can create an instance of NumberSuffix for more specific usage without using global settings.
+```javascript
+const numberSuffix = new NumberSuffix({...})
+```
+
+You can use fixed options in addition to the ones you have:
+```javascript
+const numberSuffix = new NumberSuffix({style: 'abbreviation'})
+numberSuffix.format(1e3) // 1K
+```
+```javascript
+const numberSuffix = new NumberSuffix({precision: 2})
+numberSuffix.format(1234) // 1.23k
+```
+```javascript
+const numberSuffix = new NumberSuffix({measurement: 'thousand'})
+numberSuffix.format(1234567) // 1234k
+```
+
+And, of course, to override them for even more specific usage:
+```javascript
+const numberSuffix = new NumberSuffix({measurement: 'thousand'})
+numberSuffix.format(1234567, {measurement: 'million'}) // 1M
+```
+
+You can add your own style as well with
+```javascript
+const numberSuffix = new NumberSuffix()
+numberSuffix.addStyle('myStyle', ['T', 'M', 'B', 'T'])
+numberSuffix.setDefaultStyle('myStyle')
+```
+
+To change the fixed options you can just:
+```javascript
+const numberSuffix = new NumberSuffix()
+numberSuffix.setOptions({...})
+```
